@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD013 -->
 
-# Do REinvent the Wheel (DREW)
+# **D**o **RE**invent the **W**heel (DREW)
 
 ## Why?
 
@@ -10,13 +10,11 @@ Because by analyzing and building your own implementation of the major libraries
 
 This project is my small sandbox where I squeeze every bit of coding inspiration when I am not developing for a company. It's my way of having code freedom and explore interesting topics, without the need to rush or develop based on deadlines.
 
-It has concepts, snippets and ideas gathered across 9 years of software engineer development mainly focused at web development.
-
-Take this repository as a constant WIP.
+By the end of it, it should have concepts, snippets and ideas gathered across 9 years of software engineer development mainly focused at web development. Take this repository as a **constant WIP**.
 
 ## Disclaimer
 
-This repository contains small utilities aimed for personal growth, do not use them in production unless you know what you are doing with them.
+This repository contains small utilities aimed for personal growth, do **NOT** use them in production unless you know what you are doing.
 
 Probably you'll find a lot of room for improvements, PRs are welcome, but I am aiming at having small bitesize tools with simple responsibilities.
 
