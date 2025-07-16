@@ -28,12 +28,177 @@ Probably you'll find a lot of room for improvements, PRs are welcome, but I am a
 
   Check my implementation in [the store file](./store/store.ts) and of course [its tests](./store/store.tests.ts) using the custom `expect`, `describe` and `it` functions. Check [Redux official docs](https://redux.js.org/) and [Vuex official docs](https://vuex.vuejs.org/).
 
+- [x] Debounce function for rate limiting function calls.
+
+  Check my implementation in [the debounce file](./fn/debounce.ts) and [its tests](./fn/debounce.tests.ts).
+
 ## Yet to be build/ideas
 
-- [ ] Custom promises
-- [ ] Functional Programming utils & classes
-- [ ] String manipulation
-- [ ] Date extensions
-- [ ] Objects exploration
-- [ ] Data wrangling
-- [ ] Node streams
+- [ ] Custom Promises Implementation
+- [ ] Functional Programming Utils
+- [ ] String Manipulation
+- [ ] Throttle Function
+- [ ] Enhanced Testing Utils
+- [ ] Simple Event Emitter
+- [ ] Observer Pattern Implementation
+
+## Additional Ideas
+
+### Core Programming Concepts
+- [ ] Linked List
+- [ ] Stack & Queue
+- [ ] Binary Tree
+- [ ] Binary Search Tree
+- [ ] Hash Table
+- [ ] Trie
+- [ ] Graph
+
+### Algorithms
+- [ ] Sorting Algorithms
+- [ ] Search Algorithms
+- [ ] Graph Algorithms
+- [ ] Dynamic Programming
+- [ ] Recursion Utilities
+
+### JavaScript/TypeScript Specific
+- [ ] Custom Iterator/Generator
+- [ ] Proxy Handler
+- [ ] Custom Error Classes
+- [ ] Decorator Pattern
+- [ ] Reflection Utils
+
+### Async Programming
+- [ ] Async Queue
+- [ ] Retry Logic
+- [ ] Timeout Wrapper
+- [ ] Debounced Promise
+
+### Memory Management
+- [ ] Weak References
+- [ ] Object Pool
+- [ ] Lazy Loading
+- [ ] Garbage Collection Simulation
+
+## Utility Libraries
+
+### Functional Programming
+- [ ] Immutability Helpers
+- [ ] Lens Implementation
+- [ ] Monads
+- [ ] Transducers
+- [ ] Lazy Evaluation
+
+### String/Text Processing
+- [ ] String Interpolation
+- [ ] Markdown Parser
+- [ ] CSV Parser
+- [ ] URL Parser
+- [ ] Regular Expression Builder
+
+### Date/Time
+- [ ] Date Formatter
+- [ ] Duration Calculator
+- [ ] Timezone Handler
+- [ ] Calendar Utils
+- [ ] Relative Time
+
+### Number/Math
+- [ ] Big Integer
+- [ ] Decimal Operations
+- [ ] Statistics
+- [ ] Random Generators
+- [ ] Unit Converter
+
+## Web Development
+
+### DOM Manipulation
+- [ ] Virtual DOM
+- [ ] Custom Elements
+- [ ] Event Delegation
+- [ ] CSS-in-JS
+- [ ] Animation Framework
+
+### HTTP/Networking
+- [ ] Fetch Wrapper
+- [ ] Request Cache
+- [ ] WebSocket Manager
+- [ ] Server-Sent Events
+- [ ] GraphQL Client
+
+### Storage
+- [ ] Local Storage Wrapper
+- [ ] IndexedDB Abstraction
+- [ ] Cache Manager
+- [ ] Session Manager
+- [ ] Cookie Parser
+
+## Design Patterns
+
+### Creational Patterns
+- [ ] Factory Pattern
+- [ ] Builder Pattern
+- [ ] Singleton Pattern
+- [ ] Prototype Pattern
+- [ ] Abstract Factory
+
+### Structural Patterns
+- [ ] Adapter Pattern
+- [ ] Decorator Pattern
+- [ ] Facade Pattern
+- [ ] Proxy Pattern
+- [ ] Composite Pattern
+
+### Behavioral Patterns
+- [ ] Command Pattern
+- [ ] Strategy Pattern
+- [ ] State Machine
+- [ ] Mediator Pattern
+- [ ] Chain of Responsibility
+
+## Advanced Concepts
+
+### Reactive Programming
+- [ ] Observable
+- [ ] Subject
+- [ ] Operators
+- [ ] Schedulers
+- [ ] Backpressure
+
+### Concurrency
+- [ ] Worker Pool
+- [ ] Mutex/Semaphore
+- [ ] Async Scheduler
+- [ ] Rate Limiter
+- [ ] Batch Processor
+
+### Validation/Parsing
+- [ ] Schema Validator
+- [ ] Type Guards
+- [ ] Sanitizer
+- [ ] Parser Combinator
+- [ ] Form Validator
+
+## Testing/Development Tools
+
+### Testing Framework Extensions
+- [ ] Test Runner
+- [ ] Mock Server
+- [ ] Spy Functions
+- [ ] Snapshot Testing
+- [ ] Performance Testing
+
+### Development Utilities
+- [ ] Logger
+- [ ] Debugger
+- [ ] Profiler
+- [ ] Configuration Manager
+- [ ] CLI Framework
+
+## Game Development
+
+### Game Mechanics
+- [ ] Game Loop
+- [ ] Collision Detection
+- [ ] Pathfinding
+- [ ] Finite State Machine
+- [ ] Entity Component System
