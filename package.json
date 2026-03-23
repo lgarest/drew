@@ -1,0 +1,16 @@
+{
+  "name": "drew",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "bun test",
+    "test:dots": "bun test --dots",
+    "test:vanilla": "bun run ./**/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
