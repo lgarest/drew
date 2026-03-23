@@ -24,16 +24,20 @@ Only dependency is Bun, which is a modern JavaScript runtime like Node.js, but w
 
 ## Features / Yet to be build/ideas
 
-- [x] Debounce/Throttle Function ./timing/debounce.ts ./timing/throttle.ts
 - [x] Testing Utils ./testing/test.ts
   - [ ] Enhanced testing utils (mocks, spies, etc.)
+- [x] Timing utils
+  - [x] Debounce Function ./timing/debounce.ts
+  - [x] Throttle Function ./timing/throttle.ts
+  - [ ] Benchmarking
 - [ ] Custom Promises Implementation
   - [ ] timed based promises
   - [ ] retry logic for promises
 - [ ] try catch wrapper
   - [ ] try catch wrapper for async functions
 - [ ] Functional Programming Utils
-  - [ ] either, maybe monads
+  - [ ] either monad
+  - [ ] maybe monad
   - [ ] lenses
   - [ ] transducers
   - [ ] lazy evaluation
