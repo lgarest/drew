@@ -1,9 +1,9 @@
+const VERBOSE = process.env.VERBOSE ?? false
 
 const logIndented = (indentation: number) => (msg: any) => {
   const paddingLeft = Array(indentation).fill('').join(' ')
-  console.log(`${paddingLeft} ${msg}`)
+  VERBOSE && console.log(`${paddingLeft} ${msg}`)
 }
-
 
 let indentation = 0
 class AssertionError extends Error {
@@ -19,8 +19,6 @@ const testingScope = () => (description: string, fn: () => void) => {
   indentation -= 2
 }
 
-const VERBOSE = true
-
 const assertion = (inString: string, conditional: boolean) => {
   const success = conditional == true
   VERBOSE && success && logIndented(indentation + 2)('CHECK: ' + inString)
@@ -30,16 +28,13 @@ const assertion = (inString: string, conditional: boolean) => {
 }
 
 export const expect = (value: any) => ({
-  toBe: (other: typeof value) =>
-    assertion(`${value} is ${other}`, value === other),
-  toEqual: (other: typeof value) =>
-    assertion(`${value} equals ${other}`, value == other),
+  toBe: (other: typeof value) => assertion(`${value} is ${other}`, value === other),
+  toEqual: (other: typeof value) => assertion(`${value} equals ${other}`, value == other),
   toBeGreaterThan: (other: typeof value) =>
     assertion(`${value} is greater than ${other}`, value > other),
   toBeGreaterEqualThan: (other: typeof value) =>
     assertion(`${value} is greater or equal than ${other}`, value >= other),
-  toBeLessThan: (other: typeof value) =>
-    assertion(`${value} is less than ${other}`, value < other),
+  toBeLessThan: (other: typeof value) => assertion(`${value} is less than ${other}`, value < other),
   toBeLessEqualThan: (other: typeof value) =>
     assertion(`${value} is less or equal than ${other}`, value <= other),
   toBeInRange: (start: typeof value, end: typeof value) =>
@@ -55,38 +50,27 @@ export const expect = (value: any) => ({
   toNotBeEmpty: () =>
     assertion(
       `${value} is not empty`,
-      !(
-        (Array.isArray(value) && value.length == 0) ||
-        Object.keys(value).length == 0
-      )
+      !((Array.isArray(value) && value.length == 0) || Object.keys(value).length == 0)
     ),
   toBeEmpty: () =>
     assertion(
       `${value} is empty`,
-      (Array.isArray(value) && value.length == 0) ||
-        Object.keys(value).length == 0
+      (Array.isArray(value) && value.length == 0) || Object.keys(value).length == 0
     ),
   toBeTruthy: () => assertion(`${value} is truthy`, Boolean(value) == true),
   toBeFalsy: () => assertion(`${value} is falsy`, Boolean(value) == false),
   toBeDefined: () => assertion(`${value} is defined`, value !== undefined),
   toBeA: (type: string) =>
-    assertion(
-      `${value} has the same type as ${type}`,
-      typeof value === typeof type
-    ),
+    assertion(`${value} has the same type as ${type}`, typeof value === typeof type),
   toNotContain: (other: any) =>
     assertion(
       `${value} does not contain '${other}'`,
-      Array.isArray(value)
-        ? !value.includes(other)
-        : value[other] === undefined
+      Array.isArray(value) ? !value.includes(other) : value[other] === undefined
     ),
   toContain: (other: any) =>
     assertion(
       `${value} contains '${other}'`,
-      Array.isArray(value)
-        ? value.includes(other)
-        : value[other] !== undefined
+      Array.isArray(value) ? value.includes(other) : value[other] !== undefined
     ),
 })
 

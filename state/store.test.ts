@@ -1,22 +1,25 @@
-import { describe, it, expect } from '../utils/test'
+// import { describe, it, expect } from '../testing/test'
+import { describe, it, expect } from 'bun:test'
 
 import { MissingActionError } from './store.errors'
-import Store from './store'
+import createStore from './store'
 
 describe('GIVEN: a generic store', () => {
   describe('WHEN: it is in the initial state', () => {
     const counterInitialState = 0
-    const counterStore = new Store(
+    const counterStore = createStore(
       { n: counterInitialState },
       {
         actions: {
-          increment: state => state.n++,
+          increment: (state) => state.n++,
         },
       }
     )
     it('THEN: its values should be the initial ones', () => {
       // arrange
       const expected = 0
+
+      // act (no action needed, checking initial state)
 
       // assert
       expect(counterStore.state.n).toEqual(expected)
@@ -26,11 +29,11 @@ describe('GIVEN: a generic store', () => {
     })
   })
   describe('WHEN: it is in whichever state', () => {
-    const counterStore = new Store(
+    const counterStore = createStore(
       { n: 288 },
       {
         actions: {
-          increment: state => state.n++,
+          increment: (state) => state.n++,
         },
       }
     )
@@ -51,9 +54,7 @@ describe('GIVEN: a generic store', () => {
       const expected = ['increment', 'increment']
 
       // assert
-      expected.every(expectedAction =>
-        expect(counterStore.history).toContain(expectedAction)
-      )
+      expected.every((expectedAction) => expect(counterStore.history).toContain(expectedAction))
       expect(counterStore.history.length).toEqual(2)
     })
     it('AND: it throws a MissingActionError when dispatching non existing actions', () => {
@@ -65,13 +66,13 @@ describe('GIVEN: a generic store', () => {
       }
 
       // assert
-      expect(counterStore.history).toNotContain('this should blow up')
+      expect(counterStore.history).not.toInclude('this should blow up')
     })
   })
 })
 
 describe('GIVEN: a store with the observer pattern', () => {
-  const broadcastStore = new Store(
+  const broadcastStore = createStore(
     {},
     {
       actions: {
@@ -86,14 +87,17 @@ describe('GIVEN: a store with the observer pattern', () => {
   }
 
   const resetStore = () => {
-    broadcastStore.listeners = []
-    broadcastStore.history = []
+    broadcastStore._reset()
   }
 
   describe('WHEN: there are no listeners', () => {
     resetStore()
 
     it('THEN: the listeners list is empty', () => {
+      // arrange (resetStore already called above)
+
+      // act (no action needed, checking initial state)
+
       // assert
       expect(broadcastStore.listeners).toBeEmpty()
       expect(broadcastStore.history).toBeEmpty()
@@ -117,12 +121,9 @@ describe('GIVEN: a store with the observer pattern', () => {
   })
 
   describe('WHEN: there is a listener AND we dispatch an action', () => {
-
     it('THEN: if the action matches what a listener expects, that listener acts', () => {
-      // assert
+      // arrange
       resetStore()
-      expect(broadcastStore.listeners).toBeEmpty()
-      expect(broadcastStore.history).toBeEmpty()
 
       // act
       broadcastStore.subscribe(adderWorker)
@@ -155,9 +156,8 @@ describe('GIVEN: a store with the observer pattern', () => {
   })
 
   describe('WHEN: there is a listener AND we unsubscribe it before dispatching its matching action', () => {
-
     it('THEN: there are no listeners that can act', () => {
-      // arrange 
+      // arrange
       resetStore()
       counter = 0
       broadcastStore.subscribe(adderWorker)
